@@ -37,7 +37,8 @@ const Sidebar = ({ darkMode }) => {
       icon: <FaCamera className="text-white text-lg" />,
       colorFrom: "from-purple-400",
       colorTo: "to-purple-600",
-      href: "/projects/kmina"
+      // href: "/projects/kmina"
+      disabled: true
     },
     {
       id: 4,
@@ -45,7 +46,8 @@ const Sidebar = ({ darkMode }) => {
       icon: <FaDoorOpen className="text-white text-lg" />,
       colorFrom: "from-green-400",
       colorTo: "to-green-600",
-      href: "/projects/znm"
+      // href: "/projects/znm"
+      disabled: true
     }
   ];
 
