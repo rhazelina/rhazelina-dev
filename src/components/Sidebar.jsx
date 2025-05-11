@@ -31,7 +31,7 @@ const Sidebar = ({ darkMode }) => {
     },
     {
       id: 3,
-      name: "Kmina Studio",
+      name: "undefined",
       icon: <FaCamera className="text-white text-lg" />,
       colorFrom: "from-purple-400",
       colorTo: "to-purple-600",
@@ -39,7 +39,7 @@ const Sidebar = ({ darkMode }) => {
     },
     {
       id: 4,
-      name: "ZnM Portal",
+      name: "undefined",
       icon: <FaDoorOpen className="text-white text-lg" />,
       colorFrom: "from-green-400",
       colorTo: "to-green-600",
@@ -101,8 +101,8 @@ const Sidebar = ({ darkMode }) => {
             />
           )}
         </div>
-        <h1 className="text-lg font-bold">Arie Helvetica</h1>
-        <p className="text-xs text-white/70">znm@kmina</p>
+        <h1 className="text-lg font-bold">Arie Helvetica | Rhazel1na </h1>
+        <p className="text-xs text-white/70">ꦫꦄꦗ꦳ꦺꦭꦶꦤ</p>
       </div>
       <div className="mb-6 px-2">
         <p className="text-sm text-white/80 italic">
