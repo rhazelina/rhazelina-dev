@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBook, FaPalette, FaCamera, FaDoorOpen, FaExternalLinkAlt } from "react-icons/fa";
-import { Tooltip } from "@mui/material";
 
 const Sidebar = ({ darkMode }) => {
   const [imgError, setImgError] = useState(false);
@@ -91,54 +90,46 @@ const Sidebar = ({ darkMode }) => {
           
           <div className="space-y-3">
             {projects.map((project) => (
-              <Tooltip 
-                key={project.id} 
-                title={project.disabled ? "Coming soon" : ""} 
-                placement="right"
-                arrow
+              <Link 
+                key={project.id}
+                to={project.href} 
+                onClick={(e) => project.disabled ? e.preventDefault() : null}
+                className="block group"
               >
-                <div>
-                  <Link 
-                    to={project.href} 
-                    onClick={(e) => project.disabled ? e.preventDefault() : null}
-                    className="block group"
-                  >
-                    <div className={`flex items-center justify-between rounded-lg p-3 border transition-all duration-200
-                      ${project.disabled 
-                        ? "bg-white/5 border-white/5 cursor-not-allowed" 
-                        : "bg-white/5 backdrop-blur-sm border-white/10 group-hover:border-white/30 group-hover:bg-white/10"}
-                      `}
-                    >
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-9 h-9 rounded-lg flex items-center justify-center bg-gradient-to-br ${project.colorFrom} ${project.colorTo}`}>
-                          {project.icon}
-                        </div>
-                        <div>
-                          <span className={`font-medium text-sm ${project.disabled ? "text-white/60" : ""}`}>
-                            {project.name}
-                          </span>
-                          {project.disabled && (
-                            <span className="block text-xs text-white/40">Coming soon</span>
-                          )}
-                        </div>
-                      </div>
-                      {!project.disabled && (
-                        <div className={`flex items-center text-xs px-2 py-1 rounded transition-colors
-                          ${project.external ? "bg-blue-500/20 text-blue-300" : "bg-white/10 text-white/70"}
-                          group-hover:${project.external ? "bg-blue-500/30" : "bg-white/20"}
-                        `}>
-                          {project.external ? (
-                            <>
-                              <span className="mr-1">External</span>
-                              <FaExternalLinkAlt className="text-xs" />
-                            </>
-                          ) : "View"}
-                        </div>
+                <div className={`flex items-center justify-between rounded-lg p-3 border transition-all duration-200
+                  ${project.disabled 
+                    ? "bg-white/5 border-white/5 cursor-not-allowed" 
+                    : "bg-white/5 backdrop-blur-sm border-white/10 group-hover:border-white/30 group-hover:bg-white/10"}
+                  `}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center bg-gradient-to-br ${project.colorFrom} ${project.colorTo}`}>
+                      {project.icon}
+                    </div>
+                    <div>
+                      <span className={`font-medium text-sm ${project.disabled ? "text-white/60" : ""}`}>
+                        {project.name}
+                      </span>
+                      {project.disabled && (
+                        <span className="block text-xs text-white/40">Coming soon</span>
                       )}
                     </div>
-                  </Link>
+                  </div>
+                  {!project.disabled && (
+                    <div className={`flex items-center text-xs px-2 py-1 rounded transition-colors
+                      ${project.external ? "bg-blue-500/20 text-blue-300" : "bg-white/10 text-white/70"}
+                      group-hover:${project.external ? "bg-blue-500/30" : "bg-white/20"}
+                    `}>
+                      {project.external ? (
+                        <>
+                          <span className="mr-1">External</span>
+                          <FaExternalLinkAlt className="text-xs" />
+                        </>
+                      ) : "View"}
+                    </div>
+                  )}
                 </div>
-              </Tooltip>
+              </Link>
             ))}
           </div>
         </div>
